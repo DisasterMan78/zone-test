@@ -1,12 +1,17 @@
 Using NVM
 
+React, Redux + deps:
 * `$ nvm install node //update node`
 * `$ npm install -g create-react-app`
 * `$ create-react-app zone-test`
 * `$ cd zone-test/`
 * `$ npm install redux react-redux redux-thunk --save`
+
+UI Framework:
 * `$ yarn add semantic-ui-react`
-* `$ npm install --save-dev eslint`
+
+Linting:
+ESLint already installed by React
 * `$ ./node_modules/.bin/eslint --init`
 
 ```
@@ -21,10 +26,24 @@ eslint-config-airbnb@latest eslint@^4.19.1 || ^5.3.0 eslint-plugin-import@^2.14.
 ? Would you like to install them now with npm? Yes
 ```
 
-* Add `eslint.rc` rule to support JSX in JS
+* Add rule to support JSX in JS
+
+`eslint.rc`:
 ```
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     },
 ```
 
+Unit testing:
+* `$ npm install --save-dev enzyme enzyme-adapter-react-16 react-test-renderer`
+
+Debugging Redux
+* `$ npm install redux-logger`
+
+API connection
+* `$ npm install fetch`
+* `$ npm install dns`
+
+Missing dependencies
+* `$ npm install net`

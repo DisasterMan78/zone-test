@@ -9,6 +9,7 @@ Latest Node.js, React, Redux + deps:
 
 UI Framework:
 * `$ yarn add semantic-ui-react`
+* `$ npm install babel-loader`
 
 Linting:
 * `$ npm install eslint@5.6.0`
@@ -36,7 +37,7 @@ eslint-config-airbnb@latest eslint@^4.19.1 || ^5.3.0 eslint-plugin-import@^2.14.
 ```
 
 Unit testing:
-* `$ npm install --save-dev enzyme enzyme-adapter-react-16 react-test-renderer`
+* `$ npm install --save-dev jest enzyme enzyme-adapter-react-16 chai chai-enzyme react-test-renderer redux-mock-store fetch-mock node-fetch`
 
 Supporting React packages
 * `$ npm install redux-logger react-pure-lifecycle prop-types`

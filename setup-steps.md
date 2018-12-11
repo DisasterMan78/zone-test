@@ -1,7 +1,7 @@
 Using NVM
 
-React, Redux + deps:
-* `$ nvm install node //update node`
+Latest Node.js, React, Redux + deps:
+* `$ nvm install node`
 * `$ npm install -g create-react-app`
 * `$ create-react-app zone-test`
 * `$ cd zone-test/`
@@ -11,7 +11,7 @@ UI Framework:
 * `$ yarn add semantic-ui-react`
 
 Linting:
-ESLint already installed by React
+* `$ npm install eslint@5.6.0`
 * `$ ./node_modules/.bin/eslint --init`
 
 ```
@@ -38,12 +38,5 @@ eslint-config-airbnb@latest eslint@^4.19.1 || ^5.3.0 eslint-plugin-import@^2.14.
 Unit testing:
 * `$ npm install --save-dev enzyme enzyme-adapter-react-16 react-test-renderer`
 
-Debugging Redux
-* `$ npm install redux-logger`
-
-API connection
-* `$ npm install fetch`
-* `$ npm install dns`
-
-Missing dependencies
-* `$ npm install net`
+Supporting React packages
+* `$ npm install redux-logger react-pure-lifecycle prop-types`

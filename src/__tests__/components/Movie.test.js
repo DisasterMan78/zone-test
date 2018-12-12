@@ -27,8 +27,8 @@ it('should render and contain the title and a poster', () => {
     title="Sample Movie"
     imagePath="sample-image.jpeg"
   />);
-  const title = wrapper.find('h3.movie__title');
-  const poster = wrapper.find('img.movie__poster');
+  const title = wrapper.find('.movie__title');
+  const poster = wrapper.find('.movie__poster');
 
   expect(title.length)
     .to.equal(1);

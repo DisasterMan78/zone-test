@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Card, Image } from 'semantic-ui-react';
+
 const Movie = ({ title, imagePath }) => (
-  <article>
-    <h3 className="movie__title text-center">{title}</h3>
-    <img
+  <Card>
+    <Image
       className="movie__poster"
       src={`https://image.tmdb.org/t/p/w500/${imagePath}`}
-      alt="{title} poster"
+      alt={`${title} poster`}
     />
-  </article>
+    <Card.Header className="movie__title text-center">{title}</Card.Header>
+  </Card>
 );
 
 Movie.propTypes = {

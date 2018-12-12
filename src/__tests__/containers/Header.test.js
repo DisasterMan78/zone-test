@@ -6,6 +6,7 @@ import chaiEnzyme from 'chai-enzyme';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Header } from '../../containers/Header';
+import { fetchGenres } from '../../actions/index';
 
 configure({ adapter: new Adapter() }); // configures Enzyme adapter
 
@@ -16,6 +17,7 @@ configure({ adapter: new Adapter() });
 const headerComponent = (
   <Header
     action={() => {}}
+    fetchGenres={() => {}}
   />
 );
 

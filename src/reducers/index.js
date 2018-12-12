@@ -1,4 +1,9 @@
-import { REQUEST_NOW_PLAYING, RECEIVE_NOW_PLAYING } from '../actions';
+import {
+  REQUEST_NOW_PLAYING,
+  RECEIVE_NOW_PLAYING,
+  REQUEST_GENRES,
+  RECEIVE_GENRES,
+} from '../actions';
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
@@ -18,6 +23,18 @@ const reducer = (state = {}, action) => {
             return accumulated;
           }, []),
         )],
+      };
+    }
+    case REQUEST_GENRES:
+      return { ...state, genresLoading: true };
+
+    case RECEIVE_GENRES: {
+      const genreNames = action.results;
+
+      return {
+        ...state,
+        genreNames,
+        genresLoading: false,
       };
     }
 

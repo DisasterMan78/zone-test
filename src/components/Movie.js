@@ -1,33 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Card, Image, Rating } from 'semantic-ui-react';
+import { Card, Image, Rating, Label } from 'semantic-ui-react';
 
-const Movie = ({ title, imagePath, rating, popularity }) => (
-  <Card>
-    <Image
-      className="movie__poster"
-      src={`https://image.tmdb.org/t/p/w500/${imagePath}`}
-      alt={`${title} poster`}
-    />
-    <Card.Header className="movie__title text-center">
-      {title} {popularity}
-    </Card.Header>
-    <Card.Content extra>
-      <Rating
-        className="movie__rating"
-        icon="star"
-        defaultRating={rating}
-        maxRating={10}
-        disabled
+/* eslint-disable react/forbid-prop-types */
+const Movie = ({ movieId, title, imagePath, genres, rating, popularity }) => {
+  let genreComponents = '';
+
+  if (genres) {
+    genreComponents = genres.map(item => (
+      <Label
+        tag
+        key={item}
+        className="movie__tag"
+      >
+        {item}
+      </Label>
+    ));
+  }
+  return (
+    <Card
+      id={`movie--${movieId}`}
+    >
+      <Image
+        className="movie__poster"
+        src={`https://image.tmdb.org/t/p/w500/${imagePath}`}
+        alt={`${title} poster`}
       />
-    </Card.Content>
-  </Card>
-);
+      <Card.Content>
+        <Card.Header className="movie__title text-center">
+          {title}
+          {popularity}
+        </Card.Header>
+        <Card.Meta>
+          {genreComponents}
+        </Card.Meta>
+      </Card.Content>
+      <Card.Content extra>
+        <Rating
+          className="movie__rating"
+          icon="star"
+          defaultRating={rating}
+          maxRating={10}
+          disabled
+        />
+      </Card.Content>
+    </Card>
+  );
+};
+/* eslint-disable react/forbid-prop-types */
 
 Movie.propTypes = {
+  movieId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
+  genres: PropTypes.array.isRequired,
   rating: PropTypes.number.isRequired,
   // popularity: PropTypes.string.isRequired,
 };

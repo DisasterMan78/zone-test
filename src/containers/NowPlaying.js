@@ -8,14 +8,15 @@ export const NowPlaying = ({ movies, loading }) => {
   let movie = '';
 
   if (movies) {
-    movie = movies.map(article => (
+    movie = movies.map(item => (
       <Movie
-        key={article.id}
-        title={article.title}
-        imagePath={article.poster_path}
-        rating={article.vote_average}
-        // genres={article.genre_ids}
-        popularity={article.popularity}
+        key={item.id}
+        movieId={item.id}
+        title={item.title}
+        imagePath={item.poster_path}
+        rating={item.vote_average}
+        genres={item.genre_ids}
+        popularity={item.popularity}
       />
     ));
   }

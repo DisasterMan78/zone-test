@@ -13,8 +13,9 @@ export const NowPlaying = ({ movies, loading }) => {
         key={article.id}
         title={article.title}
         imagePath={article.poster_path}
-        // genres={movies[index].genre_ids}
-        // popularity={movies[index].popularity}
+        rating={article.vote_average}
+        // genres={article.genre_ids}
+        popularity={article.popularity}
       />
     ));
   }

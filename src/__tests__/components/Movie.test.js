@@ -17,22 +17,28 @@ it('App renders without crashing', () => {
   const wrapper = shallow(<Movie
     title="Sample Movie"
     imagePath="sample-image.jpeg"
+    rating={5}
   />);
 
   expect(wrapper.exists()).to.equal(true);
 });
 
-it('should render and contain the title and a poster', () => {
+it('should render and contain the title, a poster and a rating', () => {
   const wrapper = shallow(<Movie
     title="Sample Movie"
     imagePath="sample-image.jpeg"
+    rating={5}
   />);
   const title = wrapper.find('.movie__title');
   const poster = wrapper.find('.movie__poster');
+  const rating = wrapper.find('.movie__rating');
 
   expect(title.length)
     .to.equal(1);
 
   expect(poster.length)
+    .to.equal(1);
+
+  expect(rating.length)
     .to.equal(1);
 });

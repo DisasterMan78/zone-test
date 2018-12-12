@@ -1,31 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import { Button } from 'semantic-ui-react';
-
-import { fetchMovies } from '../actions';
-
+import HeaderConnected from './Header';
 import NowPlayingConnected from './NowPlaying';
 
 
-export const App = ({ action }) => (
+export default () => (
   <div>
-    <Button
-      className="whatson__button"
-      content="What's on?"
-      onClick={action}
-    />
+    <HeaderConnected />
     <NowPlayingConnected />
   </div>
 );
-
-App.propTypes = {
-  action: PropTypes.func.isRequired,
-};
-
-const mapDispatchToProps = {
-  action: fetchMovies,
-};
-
-export default connect(null, mapDispatchToProps)(App);

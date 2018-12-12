@@ -5,7 +5,7 @@ import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from '../../containers/App';
+import { Header } from '../../containers/Header';
 
 configure({ adapter: new Adapter() }); // configures Enzyme adapter
 
@@ -13,9 +13,9 @@ chai.use(chaiEnzyme());
 
 configure({ adapter: new Adapter() });
 
-it('App renders without crashing', () => {
+it('Header renders without crashing', () => {
   const wrapper = shallow(
-    <App
+    <Header
       action={() => {}}
     />
   );
@@ -23,16 +23,13 @@ it('App renders without crashing', () => {
   expect(wrapper.exists()).to.equal(true);
 });
 
-it('should render and contain Header and NowPlaying components', () => {
+it('should render and contain a button', () => {
   const wrapper = shallow(
-    <App
+    <Header
       action={() => {}}
     />
   );
 
   expect(wrapper)
-    .to.have.exactly(1).descendants('Connect(Header)');
-
-  expect(wrapper)
-    .to.have.exactly(1).descendants('Connect(NowPlaying)');
+    .to.have.exactly(1).descendants('Button');
 });

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Movie from '../components/Movie';
 
 /* eslint-disable react/forbid-prop-types */
-export const NowPlaying = ({ movies, loading }) => {
+export const NowPlaying = ({ movies, genreNames, loading }) => {
   let movie = '';
 
   if (movies) {
@@ -16,7 +16,7 @@ export const NowPlaying = ({ movies, loading }) => {
         imagePath={item.poster_path}
         rating={item.vote_average}
         genres={item.genre_ids}
-        popularity={item.popularity}
+        genreNames={genreNames}
       />
     ));
   }
@@ -35,16 +35,19 @@ export const NowPlaying = ({ movies, loading }) => {
 /* eslint-disable react/forbid-prop-types */
 NowPlaying.propTypes = {
   movies: PropTypes.array,
+  genreNames: PropTypes.object,
   loading: PropTypes.bool,
 };
 
 NowPlaying.defaultProps = {
   movies: [],
+  genreNames: {},
   loading: false,
 };
 
 const mapStateToProps = state => ({
   movies: state.movies,
+  genreNames: state.genreNames,
   loading: state.loading,
 });
 

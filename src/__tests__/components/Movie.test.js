@@ -17,7 +17,13 @@ const movieId = 34567;
 const title = 'Sample Movie';
 const imagePath = 'sample-image.jpeg';
 const rating = 5;
-const genres = [1, 2, 3, 4];
+const genres = [0, 1, 2, 3];
+const genreNames = {
+  0: 'Terrible',
+  1: 'Eighties',
+  2: 'Teen',
+  3: 'Movies',
+};
 
 const movieComponent = (
   <Movie
@@ -26,6 +32,7 @@ const movieComponent = (
     imagePath={imagePath}
     rating={rating}
     genres={genres}
+    genreNames={genreNames}
   />
 );
 
@@ -65,4 +72,12 @@ it('should contain a tag for every genre', () => {
 
   expect(genreTags.length)
     .to.equal(genres.length);
+});
+
+it('should display tag ids to genre names', () => {
+  const wrapper = mount(movieComponent);
+  const genreTag = wrapper.find('.movie__tag').at(0);
+
+  expect(genreTag).text()
+    .to.equal(genreNames[0]);
 });

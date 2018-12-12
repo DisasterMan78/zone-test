@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Card, Image, Rating, Label } from 'semantic-ui-react';
 
 /* eslint-disable react/forbid-prop-types */
-const Movie = ({ movieId, title, imagePath, genres, rating, popularity }) => {
+const Movie = ({ movieId, title, imagePath, genres, rating, genreNames }) => {
   let genreComponents = '';
 
   if (genres) {
@@ -14,7 +14,7 @@ const Movie = ({ movieId, title, imagePath, genres, rating, popularity }) => {
         key={item}
         className="movie__tag"
       >
-        {item}
+        {genreNames[item]}
       </Label>
     ));
   }
@@ -30,7 +30,6 @@ const Movie = ({ movieId, title, imagePath, genres, rating, popularity }) => {
       <Card.Content>
         <Card.Header className="movie__title text-center">
           {title}
-          {popularity}
         </Card.Header>
         <Card.Meta>
           {genreComponents}
@@ -50,13 +49,14 @@ const Movie = ({ movieId, title, imagePath, genres, rating, popularity }) => {
 };
 /* eslint-disable react/forbid-prop-types */
 
+
 Movie.propTypes = {
   movieId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   genres: PropTypes.array.isRequired,
   rating: PropTypes.number.isRequired,
-  // popularity: PropTypes.string.isRequired,
+  genreNames: PropTypes.object.isRequired,
 };
 
 export default Movie;

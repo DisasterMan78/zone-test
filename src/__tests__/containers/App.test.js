@@ -13,22 +13,20 @@ chai.use(chaiEnzyme());
 
 configure({ adapter: new Adapter() });
 
+const appComponent = (
+  <App
+    action={() => {}}
+  />
+);
+
 it('App renders without crashing', () => {
-  const wrapper = shallow(
-    <App
-      action={() => {}}
-    />
-  );
+  const wrapper = shallow(appComponent);
 
   expect(wrapper.exists()).to.equal(true);
 });
 
 it('should render and contain Header and NowPlaying components', () => {
-  const wrapper = shallow(
-    <App
-      action={() => {}}
-    />
-  );
+  const wrapper = shallow(appComponent);
 
   expect(wrapper)
     .to.have.exactly(1).descendants('Connect(Header)');

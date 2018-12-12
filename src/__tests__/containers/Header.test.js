@@ -13,22 +13,20 @@ chai.use(chaiEnzyme());
 
 configure({ adapter: new Adapter() });
 
+const headerComponent = (
+  <Header
+    action={() => {}}
+  />
+);
+
 it('Header renders without crashing', () => {
-  const wrapper = shallow(
-    <Header
-      action={() => {}}
-    />
-  );
+  const wrapper = shallow(headerComponent);
 
   expect(wrapper.exists()).to.equal(true);
 });
 
 it('should render and contain a button', () => {
-  const wrapper = shallow(
-    <Header
-      action={() => {}}
-    />
-  );
+  const wrapper = shallow(headerComponent);
 
   expect(wrapper)
     .to.have.exactly(1).descendants('Button');

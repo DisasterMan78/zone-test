@@ -69,7 +69,7 @@ describe('RECEIVE_GENRES', () => {
       type: RECEIVE_GENRES,
       results: JSON.parse('[{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"}]'),
     };
-    const expectedState = JSON.parse('{"genreNames":[{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"}], "genresLoading": false}');
+    const expectedState = JSON.parse('{"genreNames": {"12": "Adventure", "16": "Animation", "28": "Action", "35": "Comedy"}, "genresLoading": false}');
 
     expect(reducer(undefined, action)).toEqual(expectedState);
   });

@@ -30,10 +30,14 @@ const reducer = (state = {}, action) => {
 
     case RECEIVE_GENRES: {
       const genreNames = action.results;
+      const genresKeyed = {};
+      genreNames.forEach((genre) => {
+        genresKeyed[genre.id] = genre.name;
+      });
 
       return {
         ...state,
-        genreNames,
+        genreNames: genresKeyed,
         genresLoading: false,
       };
     }

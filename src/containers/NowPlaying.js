@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import Movie from '../components/Movie';
 
 /* eslint-disable react/forbid-prop-types */
-export const NowPlaying = ({ movies, genreNames, loading, ratingMinimum }) => {
+export const NowPlaying = ({
+  movies, genreNames, loading, ratingMinimum,
+}) => {
   let movie = '';
 
   if (movies) {

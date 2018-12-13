@@ -5,7 +5,6 @@ const API_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '1c39fff5640c6fb0f3dc3684488005bd';
 
 function fetchApi(dispatch, endpoint, request, received) {
-
   dispatch(request());
 
   return fetch(`${API_URL}${endpoint}?api_key=${API_KEY}`)
@@ -34,7 +33,7 @@ export const receivedGenres = json => ({
 });
 
 export function fetchGenres() {
-  return function (dispatch) {
+  return (dispatch) => {
     fetchApi(dispatch, genresEndpoint, requestGenres, receivedGenres);
   };
 }
@@ -55,7 +54,7 @@ export const receivedMovies = json => ({
 });
 
 export function fetchMovies() {
-  return function (dispatch) {
+  return (dispatch) => {
     fetchApi(dispatch, moviesEndpoint, requestMovies, receivedMovies);
   };
 }
@@ -69,7 +68,7 @@ export const changedRating = value => ({
 });
 
 export function setMinimumRating(value) {
-  return function (dispatch) {
+  return (dispatch) => {
     dispatch(changedRating(value));
   };
 }

@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Card, Image, Rating, Label } from 'semantic-ui-react';
+import {
+  Card, Image, Rating, Label,
+} from 'semantic-ui-react';
 
 /* eslint-disable react/forbid-prop-types */
-const Movie = ({ movieId, title, imagePath, genres, rating, genreNames }) => {
+const Movie = ({
+  movieId, title, imagePath, genres, rating, genreNames,
+}) => {
   let genreComponents = '';
 
   if (genres) {

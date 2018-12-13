@@ -26,7 +26,6 @@ const intent = (value, callback) => {
   }, intentDelay);
 };
 
-/* eslint-disable react/forbid-prop-types */
 const RatingFilter = ({ ratingMinimum, setMinimumRating }) => {
   const maskStyle = {
     width: `${calculateMaskWidth(ratingMinimum)}px`,

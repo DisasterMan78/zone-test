@@ -7,3 +7,24 @@
 .ui.card:first-child {
   margin-top: 1em;
 }
+
+.rating-filter{
+  display: inline-block;
+  width: 200px;
+  margin: 20px;
+}
+
+.rating-filter__display{
+  position: relative;
+  margin-top: 5px;
+}
+
+.rating-filter__display-mask{
+  position: absolute;
+  display: block !important;
+  right:0;
+  margin-top: -20px;
+  height: 20px;
+  background-color: #fff;
+  overflow: hidden;
+}

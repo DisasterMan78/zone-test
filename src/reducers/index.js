@@ -3,9 +3,15 @@ import {
   RECEIVE_NOW_PLAYING,
   REQUEST_GENRES,
   RECEIVE_GENRES,
+  SET_MINIMUM_RATING,
 } from '../actions';
 
-const reducer = (state = {}, action) => {
+export const initialState = {
+  ratingMinimum: 0,
+  loading: false,
+};
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_NOW_PLAYING:
       return { ...state, loading: true };
@@ -39,6 +45,13 @@ const reducer = (state = {}, action) => {
         ...state,
         genreNames: genresKeyed,
         genresLoading: false,
+      };
+    }
+
+    case SET_MINIMUM_RATING: {
+      return {
+        ...state,
+        ratingMinimum: action.results.value,
       };
     }
 

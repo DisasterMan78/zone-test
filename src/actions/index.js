@@ -59,3 +59,17 @@ export function fetchMovies() {
     fetchApi(dispatch, moviesEndpoint, requestMovies, receivedMovies);
   };
 }
+
+
+export const SET_MINIMUM_RATING = 'SET_MINIMUM_RATING';
+
+export const changedRating = value => ({
+  type: SET_MINIMUM_RATING,
+  results: value,
+});
+
+export function setMinimumRating(value) {
+  return function (dispatch) {
+    dispatch(changedRating(value));
+  };
+}

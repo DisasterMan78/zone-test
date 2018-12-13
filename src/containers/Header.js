@@ -4,12 +4,17 @@ import { connect } from 'react-redux';
 
 import { Button } from 'semantic-ui-react';
 
-import { fetchMovies, fetchGenres } from '../actions';
+import { fetchMovies, fetchGenres, setMinimumRating } from '../actions';
+import RatingFilter from '../components/RatingFilter';
 
 export class Header extends Component {
   static propTypes = {
-      action: PropTypes.func.isRequired,
-      fetchGenres: PropTypes.func.isRequired,
+    ratingMinimum: PropTypes.number.isRequired,
+    genreNames: PropTypes.object,
+    loading: PropTypes.bool,
+    fetchMovies: PropTypes.func.isRequired,
+    fetchGenres: PropTypes.func.isRequired,
+    setMinimumRating: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
@@ -18,28 +23,34 @@ export class Header extends Component {
 
 
   render() {
-    const { action } = this.props;
+    const { fetchMovies, ratingMinimum, setMinimumRating } = this.props;
 
     return (
       <header>
         <Button
           className="whatson__button"
           content="What's on?"
-          onClick={action}
+          onClick={fetchMovies}
+        />
+        <RatingFilter
+          ratingMinimum={ratingMinimum}
+          setMinimumRating={setMinimumRating}
         />
       </header>
     )
   }
 };
 
-Header.propTypes = {
-  action: PropTypes.func.isRequired,
-  fetchGenres: PropTypes.func.isRequired,
-};
+const mapStateToProps = state => ({
+  ratingMinimum: state.ratingMinimum,
+  genreNames: state.genreNames,
+  loading: state.loading,
+});
 
 const mapDispatchToProps = {
-  action: fetchMovies,
-  fetchGenres: fetchGenres,
+  fetchMovies,
+  fetchGenres,
+  setMinimumRating
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

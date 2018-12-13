@@ -16,7 +16,7 @@ configure({ adapter: new Adapter() });
 const headerComponent = (
   <Header
     ratingMinimum={0}
-    genreNames={[]}
+    genreNames={{}}
     loading={false}
     fetchMovies={() => {}}
     fetchGenres={() => {}}

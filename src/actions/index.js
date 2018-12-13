@@ -72,3 +72,19 @@ export function setMinimumRating(value) {
     dispatch(changedRating(value));
   };
 }
+
+export const SET_ACTIVE_GENRES = 'SET_ACTIVE_GENRES';
+
+export const changedActiveGenres = (genre, value) => ({
+  type: SET_ACTIVE_GENRES,
+  results: {
+    genre,
+    value,
+  },
+});
+
+export function setActiveGenres(genre, value) {
+  return (dispatch) => {
+    dispatch(changedActiveGenres(genre, value));
+  };
+}

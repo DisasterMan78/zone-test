@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Movie from '../components/Movie';
 
+
+const movieHasActiveGenre = (genres, activeGenres) => genres.some(
+  genre => activeGenres.includes(genre)
+);
+
 /* eslint-disable react/forbid-prop-types */
 export const NowPlaying = ({
-  movies, genreNames, loading, ratingMinimum,
+  movies, genreNames, loading, ratingMinimum, activeGenres,
 }) => {
   let movie = '';
 
@@ -13,7 +18,9 @@ export const NowPlaying = ({
     movie = movies.map((item) => {
       let returnMovie = '';
 
-      if (item.vote_average >= ratingMinimum) {
+      if (
+        item.vote_average >= ratingMinimum && movieHasActiveGenre(item.genre_ids, activeGenres)
+      ) {
         returnMovie = (
           <Movie
             key={item.id}
@@ -45,15 +52,14 @@ export const NowPlaying = ({
 
 NowPlaying.propTypes = {
   movies: PropTypes.array,
-  genreNames: PropTypes.object,
-  loading: PropTypes.bool,
+  genreNames: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
   ratingMinimum: PropTypes.number.isRequired,
+  activeGenres: PropTypes.array.isRequired,
 };
 
 NowPlaying.defaultProps = {
   movies: [],
-  genreNames: {},
-  loading: false,
 };
 
 const mapStateToProps = state => ({
@@ -61,6 +67,7 @@ const mapStateToProps = state => ({
   genreNames: state.genreNames,
   loading: state.loading,
   ratingMinimum: state.ratingMinimum,
+  activeGenres: state.activeGenres,
 });
 
 export default connect(

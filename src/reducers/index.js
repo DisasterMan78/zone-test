@@ -4,12 +4,17 @@ import {
   REQUEST_GENRES,
   RECEIVE_GENRES,
   SET_MINIMUM_RATING,
+  SET_ACTIVE_GENRES,
 } from '../actions';
 
 export const initialState = {
   ratingMinimum: 0,
   loading: false,
+  genresLoading: false,
+  genreNames: {},
+  activeGenres: [],
 };
+
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -41,10 +46,13 @@ const reducer = (state = initialState, action) => {
         genresKeyed[genre.id] = genre.name;
       });
 
+      const activeGenres = Object.keys(genresKeyed).map(key => parseInt(key, 10));
+
       return {
         ...state,
         genreNames: genresKeyed,
         genresLoading: false,
+        activeGenres,
       };
     }
 
@@ -52,6 +60,24 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         ratingMinimum: action.results.value,
+      };
+    }
+
+    case SET_ACTIVE_GENRES: {
+      const { genre, value } = action.results;
+      const activeGenres = [...state.activeGenres];
+      if (value === true && state.activeGenres.includes(genre) === false) {
+        activeGenres.push(genre);
+      }
+
+      if (value === false && activeGenres.includes(genre)) {
+        const genreIndex = activeGenres.indexOf(genre);
+        activeGenres.splice(genreIndex, 1);
+      }
+
+      return {
+        ...state,
+        activeGenres,
       };
     }
 

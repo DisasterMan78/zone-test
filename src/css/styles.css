@@ -28,3 +28,29 @@
   background-color: #fff;
   overflow: hidden;
 }
+
+.genre-filter{
+  border: none;
+}
+
+.genre-filter__genre{
+  display: inline-block;
+  margin: 5px;
+}
+
+.genre-filter__genre input{
+  display: none;
+}
+
+.genre-filter__genre label{
+  cursor: pointer;
+}
+
+.genre-filter__genre input:checked + label .genre-filter__genre-label{
+  color: #fff;
+  background: #080;
+}
+
+.genre-filter__genre-label{
+  user-select: none;
+}

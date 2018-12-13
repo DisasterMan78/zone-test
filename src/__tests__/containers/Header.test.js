@@ -17,10 +17,12 @@ const headerComponent = (
   <Header
     ratingMinimum={0}
     genreNames={{}}
+    activeGenres={[]}
     loading={false}
     fetchMovies={() => {}}
     fetchGenres={() => {}}
     setMinimumRating={() => {}}
+    setActiveGenres={() => {}}
   />
 );
 

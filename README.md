@@ -1,3 +1,12 @@
+Run
+### `npm install`
+
+after cloning or downloading the project
+
+See [setup-steps.md](setup-steps.md) for details of how the enviroonment was installed from scratch.
+
+----
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

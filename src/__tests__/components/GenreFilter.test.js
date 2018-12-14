@@ -26,6 +26,7 @@ const genreFilterComponent = (
     genreNames={genreNames}
     activeGenres={[]}
     setActiveGenres={() => {}}
+    genresLoading={false}
   />
 );
 

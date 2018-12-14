@@ -7,7 +7,7 @@ import {
 
 /* eslint-disable react/forbid-prop-types */
 const Movie = ({
-  movieId, title, imagePath, genres, rating, genreNames,
+  movieId, title, imagePath, genres, rating, genreNames, activeGenres,
 }) => {
   let genreComponents = '';
 
@@ -16,14 +16,16 @@ const Movie = ({
       <Label
         tag
         key={item}
-        className="movie__tag"
+        className={`movie__tag${(activeGenres.includes(item)) ? ' active' : ''}`}
       >
         {genreNames[item]}
       </Label>
     ));
   }
+
   return (
     <Card
+      className="movie"
       id={`movie--${movieId}`}
     >
       <Image
@@ -61,6 +63,7 @@ Movie.propTypes = {
   genres: PropTypes.array.isRequired,
   rating: PropTypes.number.isRequired,
   genreNames: PropTypes.object.isRequired,
+  activeGenres: PropTypes.array.isRequired,
 };
 
 export default Movie;

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Button } from 'semantic-ui-react';
-
 import {
   fetchMovies, fetchGenres, setMinimumRating, setActiveGenres,
 } from '../actions';
@@ -13,14 +11,14 @@ import GenreFilter from '../components/GenreFilter';
 /* eslint-disable react/forbid-prop-types */
 export class Header extends Component {
   componentWillMount() {
-    const { fetchGenresProp } = this.props;
+    const { fetchMoviesProp, fetchGenresProp } = this.props;
     fetchGenresProp();
+    fetchMoviesProp();
   }
 
 
   render() {
     const {
-      fetchMoviesProp,
       ratingMinimum,
       setMinimumRatingProp,
       genreNames,
@@ -31,11 +29,7 @@ export class Header extends Component {
 
     return (
       <header>
-        <Button
-          className="whatson__button"
-          content="What's on?"
-          onClick={fetchMoviesProp}
-        />
+        <h1>Let's Go To The Movies!</h1>
         <RatingFilter
           ratingMinimum={ratingMinimum}
           setMinimumRating={setMinimumRatingProp}

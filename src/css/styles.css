@@ -1,5 +1,29 @@
+body{
+  background: #ccc;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+header{
+  padding: 20px;
+  color: #fff;
+  background: #333;
+}
+
+header .ui.tag.label:after,
+header .ui.tag.labels .label:after{
+  background-color: #333 !important;
+}
+
 .now-playing {
   display: grid;
+  padding: 20px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 30px;
 }
@@ -9,6 +33,7 @@
 }
 
 .rating-filter{
+  box-sizing: border-box;
   display: inline-block;
   width: 200px;
   margin: 20px;
@@ -25,12 +50,16 @@
   right:0;
   margin-top: -20px;
   height: 20px;
-  background-color: #fff;
+  background-color: #333;
   overflow: hidden;
 }
 
 .genre-filter{
+  box-sizing: border-box;
+  display: inline-block;
+  width: calc(100% - 250px);
   border: none;
+  text-align: center;
 }
 
 .genre-filter__genre{
@@ -45,12 +74,31 @@
 .genre-filter__genre label{
   cursor: pointer;
 }
+.genre-filter__genre input + label .genre-filter__genre-label{
+  color: #fff;
+  background: #800;
+}
 
 .genre-filter__genre input:checked + label .genre-filter__genre-label{
-  color: #fff;
   background: #080;
 }
 
 .genre-filter__genre-label{
   user-select: none;
+}
+
+.label.movie__tag{
+  margin: 5px;
+}
+
+.label.movie__tag.active,
+.label.movie__tag.active::before,
+.label.movie__tag.active::after{
+  color: #fff;
+  background: #080;
+}
+
+.movie.ui.card {
+  border-radius: 20px 0;
+  overflow: hidden;
 }

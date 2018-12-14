@@ -19,10 +19,11 @@ const headerComponent = (
     genreNames={{}}
     activeGenres={[]}
     loading={false}
-    fetchMovies={() => {}}
-    fetchGenres={() => {}}
-    setMinimumRating={() => {}}
-    setActiveGenres={() => {}}
+    genresLoading={false}
+    fetchMoviesProp={() => {}}
+    fetchGenresProp={() => {}}
+    setMinimumRatingProp={() => {}}
+    setActiveGenresProp={() => {}}
   />
 );
 
@@ -32,11 +33,11 @@ it('Header renders without crashing', () => {
   expect(wrapper.exists()).to.equal(true);
 });
 
-it('should render and contain a button and a rating filter', () => {
+it('should render and contain a rating filter anf a genre filter', () => {
   const wrapper = shallow(headerComponent);
 
   expect(wrapper)
-    .to.have.exactly(1).descendants('Button');
+    .to.have.exactly(1).descendants('GenreFilter');
 
   expect(wrapper)
     .to.have.exactly(1).descendants('RatingFilter');

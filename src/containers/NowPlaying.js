@@ -30,6 +30,7 @@ export const NowPlaying = ({
             rating={item.vote_average}
             genres={item.genre_ids}
             genreNames={genreNames}
+            activeGenres={activeGenres}
           />
         );
       }
@@ -37,7 +38,7 @@ export const NowPlaying = ({
     });
   }
   if (loading) {
-    movie = <h3 className="loading-indicator">Loading ...</h3>;
+    movie = <h2 className="loading-indicator">Loading ...</h2>;
   }
 
   return (

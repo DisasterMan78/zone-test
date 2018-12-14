@@ -31,6 +31,7 @@ const GenreFilter = ({ genreNames, activeGenres, setActiveGenres }) => {
 
   return (
     <fieldset className="genre-filter">
+      <h2>What do you want to see?</h2>
       {genreComponents}
     </fieldset>
   );

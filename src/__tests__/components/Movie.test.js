@@ -24,6 +24,7 @@ const genreNames = {
   2: 'Teen',
   3: 'Movies',
 };
+const activeGenres = [];
 
 const movieComponent = (
   <Movie
@@ -33,6 +34,7 @@ const movieComponent = (
     rating={rating}
     genres={genres}
     genreNames={genreNames}
+    activeGenres={activeGenres}
   />
 );
 

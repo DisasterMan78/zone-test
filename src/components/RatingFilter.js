@@ -33,7 +33,7 @@ const RatingFilter = ({ ratingMinimum, setMinimumRating }) => {
 
   return (
     <div className="rating-filter">
-      <h4>Minimum user rating</h4>
+      <h2>Junk filter:</h2>
       <InputRange
         className="rating-filter__input"
         maxValue={10}

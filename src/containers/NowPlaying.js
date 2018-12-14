@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Movie from '../components/Movie';
+import LoadingIndicator from '../components/LoadingIndicator';
 
 
 const movieHasActiveGenre = (genres, activeGenres) => genres.some(
@@ -14,6 +15,9 @@ export const NowPlaying = ({
 }) => {
   let movie = '';
 
+  if (loading) {
+    movie = (<LoadingIndicator />);
+  } else
   if (movies) {
     movie = movies.map((item) => {
       let returnMovie = '';
@@ -36,9 +40,6 @@ export const NowPlaying = ({
       }
       return returnMovie;
     });
-  }
-  if (loading) {
-    movie = <h2 className="loading-indicator">Loading ...</h2>;
   }
 
   return (

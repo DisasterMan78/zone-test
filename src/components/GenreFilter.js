@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LabelledCheckbox from './LabelledCheckbox';
+import LoadingIndicator from './LoadingIndicator';
 
 
 const invokeSetActiveGenres = (event, setActiveGenres) => {
@@ -8,9 +9,17 @@ const invokeSetActiveGenres = (event, setActiveGenres) => {
 };
 
 /* eslint-disable react/forbid-prop-types */
-const GenreFilter = ({ genreNames, activeGenres, setActiveGenres }) => {
+const GenreFilter = ({
+  genreNames, activeGenres, setActiveGenres, genresLoading,
+}) => {
+  let loadingIndicator =  '';
   const genreComponents = [];
 
+  if (genresLoading) {
+    loadingIndicator = (
+      <LoadingIndicator />
+    );
+  } else
   if (genreNames) {
     Object.keys(genreNames).forEach((key) => {
       const genre = genreNames[key];
@@ -32,6 +41,7 @@ const GenreFilter = ({ genreNames, activeGenres, setActiveGenres }) => {
   return (
     <fieldset className="genre-filter">
       <h2>What do you want to see?</h2>
+      {loadingIndicator}
       {genreComponents}
     </fieldset>
   );
@@ -43,6 +53,7 @@ GenreFilter.propTypes = {
   genreNames: PropTypes.object.isRequired,
   activeGenres: PropTypes.array.isRequired,
   setActiveGenres: PropTypes.func.isRequired,
+  genresLoading: PropTypes.bool.isRequired,
 };
 
 export default GenreFilter;

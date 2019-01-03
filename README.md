@@ -3,7 +3,7 @@ Run
 
 after cloning or downloading the project
 
-See [setup-steps.md](setup-steps.md) for details of how the enviroonment was installed from scratch.
+See [setup-steps.md](setup-steps.md) for details of how the environment was installed from scratch.
 
 ----
 

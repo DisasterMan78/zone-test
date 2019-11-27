@@ -1,5 +1,5 @@
 Run
-### `npm install`
+### `yarn install`
 
 after cloning or downloading the project
 

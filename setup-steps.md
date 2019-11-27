@@ -1,5 +1,7 @@
 Using NVM
 
+*These steps will be out of date with current version of CRA, but were correct at time of writing*
+
 Latest Node.js, React, Redux + deps:
 * `$ nvm install node`
 * `$ npm install -g create-react-app`
